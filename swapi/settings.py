@@ -4,13 +4,13 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SECRET_KEY = os.environ.get(
-    'SECRET_KEY',
-    'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
+    'SECRET_KEY'
 )
 
-DEBUG = bool(os.environ.get('DEBUG', True))
+DEBUG = False
 # Because test settings will trigger KEEN.io hits
-KEEN_DEBUG = bool(os.environ.get('DEBUG', True))
+# KEEN_DEBUG = bool(os.environ.get('DEBUG', True))
+KEEN_DEBUG = KEEN_DEBUG
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -62,10 +62,10 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-if not DEBUG:
-    DATABASES['default'] =  dj_database_url.config()
+# if not DEBUG:
+#     DATABASES['default'] =  dj_database_url.config()
 
-    DATABASES['default']['ENGINE'] = 'django_postgrespool'
+#     DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
